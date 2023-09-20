@@ -42,10 +42,22 @@ console.log(sec);
 let newHr = 0;
 
 if (hours > 12) {
-	newHr = hours - 12 + 'PM';
+	newHr = hours - 12;
+	if (newHr < 10) {
+		newHr = '0' + newHr + 'pm';
+	} else {
+		newHr = newHr + 'pm';
+	}
 } else {
-	newHr = hours + 'AM';
+	newHr = hours;
+	if (newHr < 10) {
+		newHr = '0' + newHr + 'am';
+	} else {
+		newHr = newHr + 'am';
+	}
 }
 console.log(newHr);
 //12까지 1~12 '앞에 am붙여서 출력'
 //13~24 14=> '2pm'
+
+//현재시간값에서 한자리 시간값이이면 앞에 0을 붙여서 출력
