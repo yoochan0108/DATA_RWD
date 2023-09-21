@@ -1,4 +1,19 @@
+/*
+	특정 시간을 주기로 코드를 반복할 때
+	setInterval(반복실행할 함수, 반복간격시간(ms))
+*/
 const [hr, m, s] = document.querySelectorAll('h1 span');
+setInterval(setTime, 1000);
+
+function setTime() {
+	const now = new Date();
+	const hours = now.getHours();
+	const min = now.getMinutes();
+	const sec = now.getSeconds();
+	hr.innerText = setNumbers(setHours(hours));
+	m.innerText = setNumbers(min);
+	s.innerText = setNumbers(sec);
+}
 
 /*
   객체를 셍성하는 방법
@@ -8,9 +23,6 @@ const [hr, m, s] = document.querySelectorAll('h1 span');
   -인스턴스 객체에는 prototype이라는 공통의 저장공간이 포함되어 있어서 자주쓰는 함수를 등록후
   자유롭게 호출가능
 */
-
-const now = new Date();
-console.dir(now);
 
 const months = [
 	'January',
@@ -34,19 +46,12 @@ console.log(year);
 const month = now.getMonth(); //순번을 반환
 const date = now.getDate();
 const day = now.getDay();
-const hours = now.getHours();
-const min = now.getMinutes();
-const sec = now.getSeconds();
 
-//hours값을 setHours가 조건에 12를 뺀 값으로 반환
-//반환된 결과값을 다시 바로 setNumbers에 집어넣어서 0을 붙이도록 처리
-hr.innerText = setNumbers(setHours(hours));
-m.innerText = setNumbers(min);
-s.innerText = setNumbers(sec);
-
-[hr, m, s].forEach((el) => {
-	el.innerText = setNumbers();
-});
+//다음과 같이 코드를 줄일 수 있음
+// const values = [setHours(hours), min, sec];
+// spans.forEach((el, idx) => {
+// 	el.innerText = setNumbers(idx);
+// });
 
 console.log(setNumbers(hours));
 
