@@ -1,3 +1,5 @@
+const [hr, m, s] = document.querySelectorAll('h1 span');
+
 /*
   객체를 셍성하는 방법
   -객체리터럴을 통한 생성
@@ -9,7 +11,6 @@
 
 const now = new Date();
 console.dir(now);
-//우리나라 시간대는 전세계 표준시간대에서 9시간이 더해진 시간 (그리니치 표준시간대 적용)
 
 const months = [
 	'January',
@@ -37,6 +38,10 @@ const hours = now.getHours();
 const min = now.getMinutes();
 const sec = now.getSeconds();
 
+hr.innerText = setNumbers(setHours(hours));
+m.innerText = setNumbers(min);
+s.innerText = setNumbers(sec);
+
 console.log(setNumbers(hours));
 
 function setNumbers(num) {
@@ -47,10 +52,15 @@ function setNumbers(num) {
 	//삼항연산자 구문안에는 대입연산자가 들어올 수 없기 때문에 괄호로 묶어서 표현식으로 변경
 	//특정값이 else일때 굳이 실행할 필요가 없다면 &&연산자 활용
 	//num < 10 ? (result = '0' + num) : (result = num);
-	return num < 10 && (num = '0' + num);
+	num < 10 && (num = '0' + num);
+	return num;
 }
 
-// const setNumbers = (num) => num < 10 && (num = '0' + num);
+function setHours(num) {
+	if (num > 12) num = num - 12;
+	return num;
+}
+
 /*
 let newHr = 0;
 
