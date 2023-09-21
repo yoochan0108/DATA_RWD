@@ -38,9 +38,15 @@ const hours = now.getHours();
 const min = now.getMinutes();
 const sec = now.getSeconds();
 
+//hours값을 setHours가 조건에 12를 뺀 값으로 반환
+//반환된 결과값을 다시 바로 setNumbers에 집어넣어서 0을 붙이도록 처리
 hr.innerText = setNumbers(setHours(hours));
 m.innerText = setNumbers(min);
 s.innerText = setNumbers(sec);
+
+[hr, m, s].forEach((el) => {
+	el.innerText = setNumbers();
+});
 
 console.log(setNumbers(hours));
 
