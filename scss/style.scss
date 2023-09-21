@@ -1,1 +1,33 @@
 @import 'reset';
+body {
+	width: 100%;
+	height: 100vh;
+	background: gray;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&.morning {
+		background: orange;
+	}
+	&.afternoon {
+		background: lightblue;
+	}
+	&.evening {
+		background: pink;
+	}
+	&.night {
+		background: violet;
+	}
+
+	article {
+		width: 60%;
+		height: 50%;
+		background: rgba(0, 0, 0, 0.4);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: #fff;
+		font-size: 50px;
+	}
+}
