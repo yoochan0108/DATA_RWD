@@ -37,8 +37,20 @@ const hours = now.getHours();
 const min = now.getMinutes();
 const sec = now.getSeconds();
 
-console.log(sec);
+console.log(setNumbers(hours));
 
+function setNumbers(num) {
+	let result = 0;
+	/*
+	if (num < 10) result = '0' + num;
+	else result = num;
+	*/
+	//조건식 ? true일 때 실행할 구문 : false일 때 실행할 구문
+	//삼항연산자 구문안에는 대입연산자가 들어올 수 없기 때문에 괄호로 묶어서 표현식으로 변경
+	num < 10 ? (result = '0' + num) : (result = num);
+	return result;
+}
+/*
 let newHr = 0;
 
 if (hours > 12) {
@@ -56,7 +68,9 @@ if (hours > 12) {
 		newHr = newHr + 'am';
 	}
 }
+
 console.log(newHr);
+*/
 //12까지 1~12 '앞에 am붙여서 출력'
 //13~24 14=> '2pm'
 
