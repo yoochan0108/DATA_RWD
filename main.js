@@ -47,9 +47,10 @@ function setNumbers(num) {
 	//삼항연산자 구문안에는 대입연산자가 들어올 수 없기 때문에 괄호로 묶어서 표현식으로 변경
 	//특정값이 else일때 굳이 실행할 필요가 없다면 &&연산자 활용
 	//num < 10 ? (result = '0' + num) : (result = num);
-	num < 10 && (num = '0' + num);
-	return num;
+	return num < 10 && (num = '0' + num);
 }
+
+// const setNumbers = (num) => num < 10 && (num = '0' + num);
 /*
 let newHr = 0;
 
